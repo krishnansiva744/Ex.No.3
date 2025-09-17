@@ -19,6 +19,8 @@ A **well-crafted prompt** can help a chatbot:
 * Avoid misunderstandings by asking clarifying questions.
 
 Different **prompting methods** can be applied depending on the complexity of the query and the detail required.
+<img width="694" height="612" alt="image" src="https://github.com/user-attachments/assets/4c863082-d51f-41db-87e0-969b7a190198" />
+
 
 ---
 
