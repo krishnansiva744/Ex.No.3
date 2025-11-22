@@ -1,225 +1,218 @@
-# Ex.No.3-Scenario-Based Report Development Utilizing Diverse Prompting Techniques for the the following Prompt Engineering types with examples - Straightforward Prompts - Tabular Format Prompting - Missing Word Prompting - Preceding Question Prompting.
-##  NAME:sivaramakrishnan G                                                                   
+# Exno.3-Scenario-Based Report Development Utilizing Diverse Prompting Techniques
+### DATE:                                                                            
 ### REGISTER NUMBER : 212223060264
+### Aim: To design an AI-powered chatbot that assists customers in resolving issues related to product troubleshooting, order tracking, and general inquiries. The chatbot should handle various customer queries efficiently while maintaining a conversational and user-friendly tone. In this experiment, we will employ different prompt patterns to guide the development process of the chatbot, ranging from basic task-oriented prompts to more complex, persona-driven prompts.
+
+### Algorithm:  1. Direct Instruction Prompts
+Objective: Guide the chatbot to respond concisely to customer inquiries.
+Prompt Pattern:
+Prompt: "When a customer asks for the status of their order, reply with: 'Your order is currently being processed and will be delivered by [date].'"
+2. Contextual Prompting
+Objective: Incorporate specific context to provide detailed answers based on the user’s previous interaction.
+Prompt Pattern:
+Prompt: "If the customer previously mentioned that they haven’t received their order, say, 'I see that you mentioned your order hasn't arrived yet. Let me check the details for you and get back shortly.'"
+3. Persona-Based Prompting
+Objective: Design the chatbot to adopt a specific persona, making the interaction more engaging.
+Prompt Pattern:
+Prompt: "Pretend you are a friendly, helpful customer service representative. Use a conversational tone, such as 'Hey there! I’m here to help with any questions you might have. Let’s get your issue sorted!'"
+4. Few-Shot Prompting
+Objective: Teach the AI how to respond using a few examples, enabling it to generalize for similar situations.
+Prompt Pattern:
+Prompt: "Here are some examples of how to handle technical questions:
+'My phone isn't charging.' → 'Have you tried using a different cable? If that doesn’t work, it may be an issue with the port.'
+'The screen is flickering.' → 'It sounds like a display issue. Have you tried restarting the device?'
+Now, respond to: 'My app keeps crashing.'"
+5. Chain of Thought Prompting
+Objective: Use a step-by-step reasoning approach for resolving more complex or technical issues.
+Prompt Pattern:
+Prompt: "When a customer reports their laptop overheating, guide them through the following steps:
+Ask if they are using the laptop on a soft surface.
+Suggest moving the laptop to a flat, hard surface for better airflow.
+Ask if they’ve cleaned the vents recently.
+Recommend restarting the device to see if the issue persists.
+Now, solve: 'My laptop fan is making a loud noise.'"
+6. Instruction with Constraints
+Objective: Instruct the chatbot to provide assistance while adhering to specific constraints (e.g., response length or tone).
+Prompt Pattern:
+Prompt: "Respond to order inquiries in no more than 50 words and avoid using technical jargon. For example, 'Your order is on the way and should arrive by [date]. Feel free to reach out if you need anything else.'"
+7. Reflective Prompting
+Objective: Ensure that the chatbot reflects the user’s query back to them before providing a response, reducing misunderstandings.
+Prompt Pattern:
+Prompt: "When a customer asks for help, first reflect their question back to them. For example, if they ask 'How can I reset my password?' respond with 'You're asking how to reset your password, correct? Here’s how you can do it.'"
+Result: The various types of Prompts are executed successfully.
 
-# Aim: 
-To write the prompts for these following prompt types and evaluate that using any one method 1. Straightforward Prompts, 2. Tabular Format Prompting 3.Preceding Question Prompting and 4. Missing Word Prompting
+## prompt and output:
 
+# 1. Direct Instruction Prompts
+Use Case: Order Status Inquiry
 
-# Prompt Engineering Techniques for Chatbots
+Scenario: Customer asks, “Has my order shipped yet?”
 
-Prompt Engineering is the process of *crafting effective instructions* to guide an AI system toward producing accurate, helpful, and context-aware responses.
+Refined Chatbot Response:
+"Your order is currently being processed and is expected to ship by May 10. You will receive an email with tracking details once it ships. Is there anything else I can assist you with?"
 
-A *well-crafted prompt* can help a chatbot:
+Explanation:
+By providing more precise information about when the order will ship (rather than just saying it's "being processed"), the chatbot sets clear expectations. It also invites further engagement by offering additional help.
 
-* Provide relevant answers to user queries.
-* Maintain the desired tone (formal, friendly, empathetic).
-* Handle different types of customer issues efficiently.
-* Avoid misunderstandings by asking clarifying questions.
+Additional Scenario:
+Customer asks, “How can I track my order?”
 
-Different *prompting methods* can be applied depending on the complexity of the query and the detail required.
+Response:
+"You can track your order by visiting [tracking website], where you can enter your tracking number to get real-time updates. Let me know if you need assistance finding the number!"
 
----
+# 2. Contextual Prompting
+Use Case: A Customer Reports Missing Item from Order
 
-## Types of Prompt Engineering
+Scenario: Customer says, “I only received part of my order.”
 
-### 1. Straightforward Prompts
+Refined Chatbot Response:
+"I see that part of your order is missing. Let me check on the remaining items for you. Can you please provide your order number so I can investigate further?"
 
-*Definition:*
-Direct and simple instructions given to the AI without extra context. Best for *deterministic, repetitive tasks* where the output format is fixed.
+Explanation:
+The response directly addresses the customer's concern while ensuring they are prompted to provide relevant information (order number) to move forward. The chatbot acknowledges the context of the previous statement, showing it is actively listening.
 
-*Key Features:*
+Additional Scenario:
+Customer says, “I have already contacted you about my refund.”
 
-* Clear and direct phrasing.
-* Minimal ambiguity.
-* Works well for factual or standard replies.
+Response:
+"Thanks for letting me know. I see you've already reached out about your refund. Let me check the status for you and get back with an update shortly."
 
-*Use Cases:*
+# 3. Persona-Based Prompting
+Use Case: Friendly & Empathetic Interaction
 
-* Order tracking responses.
-* Providing product availability.
-* Greeting/closing messages.
+Scenario: Customer starts a chat with a general inquiry about a product.
 
-*Example:*
+Refined Chatbot Response:
+"Hey there! 😊 I’m here to help you out with anything you need! Whether it’s finding the perfect product or answering any questions you have, I’m just a message away. What can I do for you today?"
 
-plaintext
-Prompt: "When a customer asks for order status, reply with:  
-'Your order is currently being processed and will be delivered by [date].'"
+Explanation:
+Using emojis and a cheerful tone, the chatbot offers an upbeat, friendly experience that feels more personal. This helps build rapport with the customer from the start.
 
+Additional Scenario:
+Customer says, “I’m so frustrated with this product!”
 
-*Conversation:*
+Response:
+"I totally get how frustrating that must be! 😔 Let’s figure out what’s going wrong and get this sorted for you. Can you tell me a bit more about the issue?"
 
-* Customer: "What’s the status of order #1456?"
-* Chatbot: "Your order is currently being processed and will be delivered by September 15, 2025."
+# 4. Few-Shot Prompting
+Use Case: Technical Troubleshooting
 
-*Advantages:* Fast and reliable for structured queries.
-*Limitations:* Lacks flexibility, may fail for vague queries.
+Scenario: Customer says, “My headphones aren’t connecting to Bluetooth.”
 
----
+Refined Chatbot Response (learned pattern):
+_"Let’s try a couple of things to fix that:
 
-### 2. Tabular Format Prompting
+Make sure Bluetooth is enabled on your device.
 
-*Definition:*
-Organizes information into a *structured table* for consistent responses.
+Forget the headphones from your Bluetooth settings and try reconnecting them.
 
-*Key Features:*
+If that doesn’t work, try restarting your phone and turning the headphones on again.
+Let me know how it goes!"_
 
-* Easy mapping between *Issue → Solution → Tone*.
-* Ensures consistency.
-* Best when multiple query categories exist.
+Explanation:
+The chatbot uses a simple, step-by-step troubleshooting approach based on a few-shot pattern from similar tech issues, such as Bluetooth problems. It breaks down the solution into manageable steps, increasing the chances of a quick resolution.
 
-*Use Cases:*
+Additional Scenario:
+Customer says, “I’m getting an error message on my app.”
 
-* Troubleshooting guides.
-* Policy summaries (refunds, returns, replacements).
-* Tone-based responses.
+Response:
+_"Let’s start by trying a few things:
 
-*Example Prompt:*
+Close and reopen the app.
 
-| Issue Type           | Steps                         | Tone       |
-| -------------------- | ----------------------------- | ---------- |
-| Order Tracking       | Provide ETA + tracking number | Reassuring |
-| Product Troubleshoot | Suggest fixes, then escalate  | Helpful    |
-| Refund/Return        | Explain policy + return steps | Empathetic |
+Check if there’s an update available.
 
-*Conversation:*
+If the issue persists, try reinstalling the app.
+If you still see the error, send me a screenshot and I’ll look into it further."_
 
-* Customer: "My package hasn’t arrived yet."
-* Chatbot: "I understand your concern. Your order is still in transit and is expected to arrive by September 14, 2025. Tracking number: TR123456."
+# 5. Chain of Thought Prompting
+Use Case: Troubleshooting More Complex Issues
 
-*Advantages:* Easy scalability & consistency.
-*Limitations:* May feel robotic if overused.
+Scenario: Customer says, “My laptop is overheating.”
 
----
+Refined Chatbot Response:
+_"Let’s troubleshoot step by step:
 
-### 3. Missing Word Prompting (Cloze Prompting)
+Are you using your laptop on a soft surface (like a bed or couch)? This can block the air vents.
 
-*Definition:*
-AI fills in *blanks in a template*, ensuring structured responses.
+Try placing the laptop on a flat, hard surface to help with cooling.
 
-*Key Features:*
+Have you cleaned the fans recently? Dust buildup can cause overheating.
 
-* Template-driven replies.
-* Guarantees inclusion of required fields (name, ID, date).
-* Reduces formatting errors.
+If it’s still overheating, consider checking for any software or apps running in the background that might be using too much power.
+Let me know what happens after these steps!"_
 
-*Use Cases:*
+Explanation:
+The chatbot methodically walks the user through potential causes of the issue and provides a structured way to narrow down the problem. This chain-of-thought approach works well for more complex technical issues where multiple factors could be at play.
 
-* Personalized responses.
-* Order updates with placeholders.
-* FAQs with uniform style.
+Additional Scenario:
+Customer says, “My printer isn’t connecting to Wi-Fi.”
 
-*Example Prompt:*
+Response:
+_"Let’s break it down:
 
-plaintext
-"Fill in the blanks in this template:  
-Hello [name], your order [order_id] is currently [status]. Expected delivery: [date]."
+First, check if your Wi-Fi is working fine with other devices.
 
+Make sure your printer is in range of the router.
 
-*Conversation:*
+Try restarting both the printer and the router.
 
-* Customer: "Hi, I’m Arjun. My order 5678 hasn’t been delivered yet."
-* Chatbot: "Hello Arjun, your order 5678 is currently delayed in transit. Expected delivery: September 16, 2025."
+Ensure your printer is connected to the correct Wi-Fi network.
+Let me know if these steps help!"_
 
-*Advantages:* Highly structured & accurate.
-*Limitations:* Rigid, may not handle free-flow conversations well.
+# 6. Instruction with Constraints
+Use Case: Short, Concise Responses
 
----
+Scenario: Customer asks, “When will my refund be processed?”
 
-### 4. Preceding Question Prompting
+Refined Chatbot Response (≤50 words, no jargon):
+"Your refund is being processed and should be completed by May 10. You’ll receive a confirmation email once it's done. Please reach out if you need any more information!"
 
-*Definition:*
-The AI *first asks clarifying questions* when the query lacks details.
+Explanation:
+This response adheres to the constraint of being concise (under 50 words), while still addressing the query clearly. It avoids any jargon and offers an easy-to-understand solution while maintaining a polite and helpful tone.
 
-*Key Features:*
+Additional Scenario:
+Customer asks, “How do I cancel my order?”
 
-* Adds a confirmation step.
-* Improves accuracy & trust.
-* Reduces wrong replies.
+Response:
+"To cancel your order, please go to your order history and select the ‘Cancel Order’ option. If you need help with this, just let me know!"
 
-*Use Cases:*
+# 7. Reflective Prompting
+Use Case: Clarifying the Customer’s Request
 
-* Refund requests without order ID.
-* Troubleshooting without device details.
-* Subscription/account issues.
+Scenario: Customer says, “How do I return a defective item?”
 
-*Example:*
+Refined Chatbot Response:
+_"You’re asking how to return a defective item, right? Here’s how you can do it:
 
-plaintext
-Prompt: "If customer’s query is missing details (like order ID), ask a clarifying question first."
+Log in to your account and go to your order history.
 
+Select the item you wish to return and click ‘Return Item.’
 
-*Conversation:*
+Follow the steps to print your return label.
+Let me know if you need help with any step!"_
 
-* Customer: "I need a refund."
-* Chatbot: "I can help with that! Could you please share your order number so I can check the refund details?"
+Explanation:
+The chatbot first reflects the customer’s inquiry to confirm its understanding, then provides clear and actionable steps. This method ensures the customer feels heard and confident that the solution is tailored to their request.
 
-*Advantages:* Prevents errors, builds trust.
-*Limitations:* Adds extra steps (slightly longer conversation).
+Additional Scenario:
+Customer says, “I need to change my shipping address.”
 
----
+Response:
+_"You're asking how to update your shipping address, correct? Here’s how:
 
-### 5. Few-Shot Prompting
+Go to your account settings.
 
-*Definition:*
-AI is provided with a *few examples (input → output pairs)* to learn a style or reasoning pattern.
+Click on ‘Shipping Address.’
 
-*Key Features:*
+Enter the new address and save the changes.
+Let me know if you have any questions!"_
 
-* Learns through examples.
-* Handles varied queries consistently.
-* Best when strict rules don’t exist.
+Conclusion:
+Each of these refined examples can be adapted for various customer service situations, from simple order inquiries to more complex troubleshooting. The patterns offer flexibility for tailoring responses in a way that feels natural and empathetic, while also ensuring efficiency. Let me know if you'd like to dive into specific industry examples (e.g., e-commerce, tech support) or explore further use cases!
 
-*Use Cases:*
 
-* Technical troubleshooting.
-* Domain-specific FAQs.
-* Customer query handling with nuance.
+# Result: Thus the Prompts were exected succcessfully .
 
-*Example Prompt:*
-
-plaintext
-Here are some examples:  
-
-Customer: "My phone isn’t charging."  
-Chatbot: "Please try using a different cable or adapter. If it still doesn’t work, it may need servicing."  
-
-Customer: "The screen keeps flickering."  
-Chatbot: "That seems like a display issue. Restart your device and check again."  
-
-Now respond to:  
-Customer: "My app keeps crashing."
-
-
-*Expected Output:*
-
-* Chatbot: "It looks like the app might have a bug. Please try clearing the cache or reinstalling the app. If the problem continues, let me know and I’ll help further."
-
-*Advantages:* Flexible & adaptive.
-*Limitations:* Needs well-chosen examples; too many can confuse the AI.
-
----
-
-## Best Practices for Prompt Engineering
-
-* Keep prompts *clear, concise, and unambiguous*.
-* Use *structured formats (tables, templates)* where consistency is needed.
-* Apply *preceding questions* for vague or incomplete queries.
-* Provide *examples (few-shot)* to teach style/pattern.
-* Always test prompts with *edge cases* (e.g., missing data, typos).
-
----
-
-## Result
-
-By applying *Straightforward, Tabular, Missing Word, Preceding Question, and Few-Shot Prompting*, customer service chatbots can:
-
-* Deliver accurate answers.
-* Maintain a natural conversational flow.
-* Improve customer trust and satisfaction.
-
-Each method has its *strengths and trade-offs, and the right combination depends on the **type of query* and *business goals*.
-
----
 
 
